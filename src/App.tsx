@@ -7,6 +7,10 @@ export default function App() {
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  // Example of securely accessing an API key from Netlify environment variables
+  // In Netlify, you would set VITE_API_KEY in your Site Settings > Environment Variables
+  const apiKey = import.meta.env.VITE_API_KEY || 'No API key configured';
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
